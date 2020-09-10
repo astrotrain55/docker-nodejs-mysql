@@ -1,0 +1,13 @@
+extends layout
+
+block content
+  h1= title
+  p State #{state}
+  ul
+    li
+      a(href='http://localhost:8080/?server=db&username=users_service&db=CHIRINOS', target='_blank') mysql
+    li
+      a(href='/') index
+    li
+      a(href='/employee') employee
+  button#react Click

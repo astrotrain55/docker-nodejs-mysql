@@ -1,0 +1,27 @@
+version: "2"
+
+services:
+  security:
+    build: ./app
+    container_name: app
+    ports:
+     - "3000:3000"
+    depends_on:
+     - db
+    environment:
+     - DATABASE_HOST=db
+    volumes:
+     - ./app/api:/app/api
+
+  db:
+    build: ./database
+    ports:
+      - 3306:3306
+    container_name: db
+
+  adminer:
+    image: adminer
+    container_name: adminer
+    restart: always
+    ports:
+      - 8080:8080
